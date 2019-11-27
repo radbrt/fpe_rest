@@ -12,7 +12,7 @@ CORS(app)
 tokendefinitions = {
     'FNR': {'alphabet': string.digits,
             'length': 11},
-    'SNR': {'alphabet': string.ascii_lowercase + string.digits,
+    'REG': {'alphabet': string.ascii_lowercase + string.digits,
             'length': 7}
 }
 
