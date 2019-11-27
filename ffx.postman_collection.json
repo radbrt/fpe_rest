@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "b7c7e581-0a58-441f-8032-ef9831ccbc87",
+		"name": "ffxpoc",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "hello",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost",
+					"host": [
+						"localhost"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "encrypt",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"data\": [\n{\"tokentype\": \"FNR\", \"string\": \"09391293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15045349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391293277\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089249623\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391273377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391203377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15089349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09395293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15083349923\"},\n{\"tokentype\": \"FNR\", \"string\": \"09391293377\"},\n{\"tokentype\": \"FNR\", \"string\": \"15065349923\"}\n]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/encrypt",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"encrypt"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "bulkencrypt",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"data\": {\n\t\t\"tokentype\": \"FNR\",\n\t\t\"payload\": [\"09876543210\", \"12345628901\", \"04958314812\", \"94857494839\"]\n\t}\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost/bulkencrypt",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"bulkencrypt"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
