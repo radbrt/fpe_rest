@@ -8,7 +8,7 @@ The container needs an environment variable, "FFXKEY", a string containing the e
 
 Build image: `docker build -t pyffx .`
 
-Run image: `docker run -p 80:80 pyffx`
+Run image: `docker run -p 80:80 -e FFXKEY='supersecretkey' pyffx`
 
 
 ***FOR DEMONSTRATION PURPOSES ONLY DO NOT USE IN PRODUCTION***
