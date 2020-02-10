@@ -29,6 +29,20 @@ def encrypt_object(encryptstring, piidef):
         except Exception as e:
             return({'status': 'error', 'string': '', 'message': e})
 
+def decrypt_object(encryptstring, piidef):
+    key = bytearray(os.getenv("FFXKEY").encode('utf-8'))
+
+    if piidef in tokendefinitions.keys():
+        ffx = pyffx.String(key, 
+            alphabet=tokendefinitions[piidef]['alphabet'], 
+            length=tokendefinitions[piidef]['length'])
+        try:
+            decrypted_string = ffx.decrypt(encryptstring)
+            return({'status': 'success', 'string': decrypted_string})
+        except Exception as e:
+            return({'status': 'error', 'string': '', 'message': e})
+
+
 def encrypt_array(encryptstrings, ffxengine):
     try:
         pseudonyms = {"status": "success", "payload": [ffxengine.encrypt(pii) for pii in encryptstrings]}
@@ -69,8 +83,10 @@ def bulkencrypt():
 def decrypt():
     if not "FFXKEY" in os.environ:
         return("Incorrectly configured server: No encryption key", 500)
-    else:
-        return("Sorry, I haven't learned how to do that yet", status.HTTP_501_NOT_IMPLEMENTED)
+
+    piidata = request.data.get('data')
+    decrypted_data = [decrypt_object(p['string'], p['tokentype']) for p in piidata]
+    return({'result': decrypted_data})
 
 @app.route('/')
 def generalresponse():
